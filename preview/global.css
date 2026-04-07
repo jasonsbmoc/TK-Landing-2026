@@ -1,0 +1,168 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.tk-heading {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-optical-sizing: none;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+}
+
+/* Typewriter cursor */
+/* Animate background-color instead of opacity so opacity stays free
+   for the fade-out transition (CSS animations override inline opacity). */
+@keyframes tk-blink {
+  0%, 100% { background-color: currentColor; }
+  50% { background-color: transparent; }
+}
+
+.tk-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: currentColor;
+  margin-left: 2px;
+  vertical-align: -0.18em;
+  border-radius: 1px;
+  animation: tk-blink 0.75s step-end infinite;
+}
+
+/* Button arrow hover */
+.tk-button {
+  cursor: pointer;
+}
+
+.tk-button-arrow {
+  transition: transform 0.2s ease;
+}
+
+.tk-button:hover .tk-button-arrow {
+  transform: translateX(4px);
+}
+
+/* Feature section responsive grid */
+.tk-feature-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 128px 48px;
+  background-color: #ffffff;
+}
+
+/* At narrow viewports: stack columns, image pane on top */
+@media (max-width: 800px) {
+  .tk-feature-section {
+    grid-template-columns: 1fr;
+    padding: 48px 24px;
+    gap: 28px;
+  }
+
+  /* For image-right sections, the image pane is second in DOM order.
+     Pull it above the text at mobile with order. */
+  .tk-feature-image-top {
+    order: -1;
+  }
+
+  /* Reduce the colored image container height at mobile so background
+     doesn't dwarf the screenshot when columns are narrow. */
+  .tk-feature-image-container {
+    min-height: 260px !important;
+  }
+
+  /* Tighten H1 line-height when it wraps to multiple lines on mobile. */
+  .tk-hero-headline {
+    line-height: 0.95 !important;
+  }
+
+  /* Cap cursor height below the 0.85 line-height so it never forces the
+     line box taller than the surrounding text — no jump, no reflow. */
+  .tk-hero-headline .tk-cursor {
+    height: 0.88em;
+  }
+}
+
+/* Footer responsive layout */
+.tk-footer {
+  background-color: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  padding: 80px 48px 48px;
+}
+
+.tk-footer-upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 72px;
+}
+
+.tk-footer-branding {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.tk-footer-tagline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  padding-top: 6px;
+  white-space: nowrap; /* keep text + logo on one line */
+}
+
+.tk-footer-nav {
+  display: flex;
+  gap: 72px;
+}
+
+@media (max-width: 800px) {
+  .tk-footer {
+    padding: 48px 24px 40px;
+  }
+
+  .tk-footer-upper {
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .tk-footer-tagline {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  .tk-footer-nav {
+    gap: 56px;
+  }
+}
+
+.tk-secondary-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.tk-secondary-link:hover {
+  text-decoration: underline;
+}
