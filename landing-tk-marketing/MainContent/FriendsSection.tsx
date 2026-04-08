@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import arrowRightUrl from '../../images/Arrow-Right.svg'
+import friendGroupUrl from '../../images/friend-group.svg'
 
 function fadeUp(visible: boolean, delay: number): React.CSSProperties {
   return {
@@ -15,7 +16,7 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '128px 32px',
+    padding: '88px 32px',
     backgroundColor: '#ffffff',
   },
   headline: {
@@ -72,7 +73,13 @@ export function FriendsSection() {
 
   return (
     <section ref={sectionRef} style={styles.section}>
-      <h2 className="tk-heading" style={{...styles.headline, ...fadeUp(visible, 0)}}>
+      <img
+        src={friendGroupUrl}
+        alt=""
+        width={150}
+        style={{display: 'block', marginBottom: '32px', ...fadeUp(visible, 0)}}
+      />
+      <h2 className="tk-heading" style={{...styles.headline, ...fadeUp(visible, 120)}}>
         Friends get in early.
       </h2>
       <p style={{...styles.body, ...fadeUp(visible, 160)}}>
