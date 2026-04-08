@@ -193,6 +193,7 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
           }}
         >
           <div
+            className="tk-friend-badge-inner"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -232,7 +233,7 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
         to keep you in the flow and experience the joy of writing.
       </p>
 
-      <div style={{...styles.ctaRow, ...fadeUp(fadeIn, 340)}}>
+      <div className="tk-hero-cta-row" style={{...styles.ctaRow, ...fadeUp(fadeIn, 340)}}>
         <a href="#" className="tk-button" style={styles.primaryButton}>
           Try it now{' '}
           <img className="tk-button-arrow" src={arrowRightUrl} alt="" width={16} height={16} style={{display: 'block'}} />

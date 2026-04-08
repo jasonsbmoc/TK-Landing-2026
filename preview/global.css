@@ -97,6 +97,19 @@ a {
   .tk-hero-headline .tk-cursor {
     height: 0.88em;
   }
+
+  /* Shrink badge so it fits on one line at narrow viewports. */
+  .tk-friend-badge-inner {
+    font-size: 12px !important;
+    padding: 5px 12px 5px 8px !important;
+  }
+
+  /* Stack the CTA buttons vertically at mobile. */
+  .tk-hero-cta-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
 }
 
 /* Footer responsive layout */
