@@ -14,6 +14,7 @@ import {HeroSection} from './HeroSection'
 import {FeatureSection} from './FeatureSection'
 import {FriendsSection} from './FriendsSection'
 import {Footer} from './Footer'
+import {PageGrid} from './PageGrid'
 
 // In Medium, this would wrap with:
 //   <LandingPageMetadata ... />
@@ -24,6 +25,7 @@ import {Footer} from './Footer'
 export function MainContent() {
   return (
     <div>
+      <PageGrid />
       <NavBar />
       <main>
         <HeroSection

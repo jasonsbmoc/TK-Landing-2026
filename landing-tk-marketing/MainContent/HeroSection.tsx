@@ -244,6 +244,7 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
       </div>
 
       <div
+        className="tk-hero-image-container"
         onMouseMove={handleDotMouseMove}
         onMouseLeave={handleDotMouseLeave}
         style={{

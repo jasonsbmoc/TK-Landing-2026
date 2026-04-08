@@ -16,7 +16,7 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '88px 32px',
+    padding: '44px 32px 88px',
     backgroundColor: '#ffffff',
   },
   headline: {

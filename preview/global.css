@@ -99,6 +99,21 @@ a {
     height: 0.88em;
   }
 
+  /* Shift vertical grid rails to match mobile content padding. */
+  .tk-grid-left { left: 24px !important; }
+  .tk-grid-right { right: 24px !important; }
+
+  /* Shift horizontal feature lines to match mobile section padding. */
+  .tk-feature-line-top { top: 48px !important; }
+  .tk-feature-line-bottom { bottom: 48px !important; }
+
+  /* Hero image: pull out of the section's 32px side padding to align with the 24px grid lines. */
+  .tk-hero-image-container {
+    width: calc(100% + 16px) !important;
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+
   /* Shrink badge so it fits on one line at narrow viewports. */
   .tk-friend-badge-inner {
     font-size: 12px !important;

@@ -128,7 +128,8 @@ export function FeatureSection({
     : 'radial-gradient(circle 0px at -9999px -9999px, black 0%, transparent 0%)'
 
   const imagePane = (
-    <div className={imagePaneClass} style={{display: 'flex', alignItems: 'center'}}>
+    <div className={imagePaneClass} style={{display: 'flex', alignItems: 'stretch'}}>
+
       <div
         className="tk-feature-image-container"
         onMouseMove={handleDotMouseMove}
@@ -144,6 +145,7 @@ export function FeatureSection({
           padding: getContainerPadding(imageAnchor),
           display: 'flex',
           minHeight: '400px',
+          alignSelf: 'stretch',
           ...getContainerFlex(imageAnchor),
         }}
       >
@@ -178,16 +180,29 @@ export function FeatureSection({
     </div>
   )
 
+  const lineBase: React.CSSProperties = {
+    position: 'absolute',
+    left: 0,
+    width: '100%',
+    height: 1,
+    backgroundColor: 'rgba(0,0,0,0.06)',
+    pointerEvents: 'none',
+  }
+
   return (
     <section
       ref={sectionRef}
       className="tk-feature-section"
       style={{
+        position: 'relative',
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
         transition: 'opacity 0.7s ease, transform 0.7s ease',
       }}
     >
+      {/* Lines snap to the image container edges, inset by the section's 88px vertical padding */}
+      <div aria-hidden="true" className="tk-feature-line-top" style={{...lineBase, top: 88}} />
+      <div aria-hidden="true" className="tk-feature-line-bottom" style={{...lineBase, bottom: 88}} />
       {layout === 'image-left' ? (
         <>
           {imagePane}
