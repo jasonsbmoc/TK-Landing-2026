@@ -33,8 +33,8 @@ export function MainContent() {
         <FeatureSection
           layout="image-right"
           imageAnchor="bottom"
-          title="Write more, and more, and more."
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          title="Become a morning pages person."
+          body="You're already a writer. You just need a home for your habit. TK offers prompts, finds connections between your notes, and provides data about your growing body of work."
           imageUrl={writePromptImageUrl}
           imageAlt="Prompt of the Day feature"
           backgroundUrl={bgYellowUrl}
@@ -42,8 +42,8 @@ export function MainContent() {
         <FeatureSection
           layout="image-left"
           imageAnchor="right"
-          title="Stay in the flow."
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          title="Keep it flowing."
+          body="Easily distracted? Check facts, find synonyms, and insert links without leaving your tab or derailing your train of thought with a Wikipedia side-quest."
           imageUrl={inlineFeatureImageUrl}
           imageAlt="Inline writing feature"
           backgroundUrl={bgBlueUrl}
@@ -51,8 +51,8 @@ export function MainContent() {
         <FeatureSection
           layout="image-right"
           imageAnchor="bottom-right"
-          title="Great minds write alike."
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          title="Write in good company."
+          body="On TK, connection means more. Join shared libraries to find an environment that promotes real enthusiasm, earnest interactions, and nuanced conversations."
           imageUrl={socialImageUrl}
           imageAlt="Social writing features"
           backgroundUrl={bgRedUrl}

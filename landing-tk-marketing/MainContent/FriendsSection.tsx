@@ -73,12 +73,11 @@ export function FriendsSection() {
   return (
     <section ref={sectionRef} style={styles.section}>
       <h2 className="tk-heading" style={{...styles.headline, ...fadeUp(visible, 0)}}>
-        Open early to Friends (and family)
+        Friends get in early.
       </h2>
       <p style={{...styles.body, ...fadeUp(visible, 160)}}>
-        We&rsquo;re still putting the final touches on TK, and inviting our most dedicated
-        writers to come test and help us make this thing great. Want in? Become a Friend of
-        Medium and you&rsquo;ll get access early.
+        As we get TK ready for launch, we&rsquo;re inviting our most dedicated community members
+        to test its features and give us feedback. Want in? Become a Friend of Medium for early access.
       </p>
       <a href="#" className="tk-button" style={{...styles.button, ...fadeUp(visible, 300)}}>
         Upgrade now{' '}

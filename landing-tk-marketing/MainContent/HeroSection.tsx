@@ -12,7 +12,7 @@ interface HeroSectionProps {
   backgroundUrl: string
 }
 
-const HEADLINE = 'Fall in love with writing again.'
+const HEADLINE = 'Fall back in love with writing.'
 const TYPE_SPEED = 38   // ms per character
 const TYPE_DELAY = 350  // ms before typing begins
 
@@ -229,8 +229,8 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
       </h1>
 
       <p style={{...styles.body, ...fadeUp(fadeIn, 180)}}>
-        TK is a new social writing platform from Medium. Private by default, it&rsquo;s designed
-        to keep you in the flow and experience the joy of writing.
+        Explore a new social writing platform from Medium. Here, you can collect your thoughts,
+        follow your flow, and share ideas as they emerge. TK is purpose-built to get you writing more often.
       </p>
 
       <div className="tk-hero-cta-row" style={{...styles.ctaRow, ...fadeUp(fadeIn, 340)}}>
