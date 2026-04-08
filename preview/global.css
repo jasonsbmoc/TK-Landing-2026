@@ -14,6 +14,7 @@ body {
   background: #ffffff;
   color: #1a1a1a;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
 .tk-heading {
@@ -157,6 +158,12 @@ a {
     flex-direction: column;
     gap: 40px;
     margin-bottom: 40px;
+  }
+
+  /* Stack logo above tagline so tagline has full width and doesn't overflow. */
+  .tk-footer-branding {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .tk-footer-tagline {
