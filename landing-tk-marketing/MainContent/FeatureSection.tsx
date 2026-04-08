@@ -100,8 +100,7 @@ export function FeatureSection({
           letterSpacing: '-0.02em',
           marginBottom: '20px',
           color: '#1a1a1a',
-          textWrap: 'pretty',
-        } as React.CSSProperties}
+        }}
       >
         {title}
       </h2>
