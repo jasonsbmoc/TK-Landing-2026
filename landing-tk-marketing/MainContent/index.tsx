@@ -32,7 +32,8 @@ export function MainContent() {
           imageUrl={heroImageUrl}
           backgroundUrl={bgGreenUrl}
         />
-        <FeatureSection
+        {/* Feature sections hidden for simplified first pass — kept in repo for later */}
+        {false && <FeatureSection
           layout="image-right"
           imageAnchor="bottom"
           title="Become a morning pages person."
@@ -40,8 +41,8 @@ export function MainContent() {
           imageUrl={writePromptImageUrl}
           imageAlt="Prompt of the Day feature"
           backgroundUrl={bgYellowUrl}
-        />
-        <FeatureSection
+        />}
+        {false && <FeatureSection
           layout="image-left"
           imageAnchor="right"
           title="Keep it flowing."
@@ -49,8 +50,8 @@ export function MainContent() {
           imageUrl={inlineFeatureImageUrl}
           imageAlt="Inline writing feature"
           backgroundUrl={bgBlueUrl}
-        />
-        <FeatureSection
+        />}
+        {false && <FeatureSection
           layout="image-right"
           imageAnchor="bottom-right"
           title="Write in good company."
@@ -58,7 +59,7 @@ export function MainContent() {
           imageUrl={socialImageUrl}
           imageAlt="Social writing features"
           backgroundUrl={bgRedUrl}
-        />
+        />}
         <FriendsSection />
       </main>
       <Footer />

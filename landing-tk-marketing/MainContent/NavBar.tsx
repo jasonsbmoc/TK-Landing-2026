@@ -14,24 +14,62 @@ const styles: Record<string, React.CSSProperties> = {
     zIndex: 100,
     borderBottom: '1px solid #f0f0f0',
   },
-  right: {
+  left: {
     display: 'flex',
     alignItems: 'center',
-    gap: '6px',
+    gap: '20px',
+  },
+  tagline: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
     fontSize: '14px',
     color: '#1a1a1a',
     fontFamily: 'Inter, sans-serif',
+    whiteSpace: 'nowrap' as const,
+  },
+  right: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+  },
+  signInLink: {
+    fontSize: '14px',
+    fontFamily: 'Inter, sans-serif',
+    color: '#1a1a1a',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap' as const,
+  },
+  startButton: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    backgroundColor: '#1a1a1a',
+    color: '#ffffff',
+    fontFamily: 'Inter, sans-serif',
+    fontSize: '14px',
+    fontWeight: 500,
+    padding: '8px 16px',
+    borderRadius: '6px',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap' as const,
+    letterSpacing: '-0.01em',
   },
 }
 
 export function NavBar() {
   return (
     <nav style={styles.nav}>
-      <img src={tkWordmarkUrl} alt="TK" height={24} />
-      <span style={styles.right}>
-        A new way to write, from{' '}
-        <img src={mediumWordmarkUrl} alt="Medium" height={14} style={{display: 'block'}} />
-      </span>
+      <div style={styles.left}>
+        <img src={tkWordmarkUrl} alt="TK" height={24} />
+        <span className="tk-nav-tagline" style={styles.tagline}>
+          A new way to write, from{' '}
+          <img src={mediumWordmarkUrl} alt="Medium" height={13} style={{display: 'block'}} />
+        </span>
+      </div>
+      <div style={styles.right}>
+        <a href="#" className="tk-nav-signin" style={styles.signInLink}>Sign in with Medium</a>
+        <a href="#" className="tk-button" style={styles.startButton}>Start writing</a>
+      </div>
     </nav>
   )
 }

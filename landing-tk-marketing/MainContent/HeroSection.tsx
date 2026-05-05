@@ -235,11 +235,11 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
 
       <div className="tk-hero-cta-row" style={{...styles.ctaRow, ...fadeUp(fadeIn, 340)}}>
         <a href="#" className="tk-button" style={styles.primaryButton}>
-          Try it now{' '}
+          Start writing{' '}
           <img className="tk-button-arrow" src={arrowRightUrl} alt="" width={16} height={16} style={{display: 'block'}} />
         </a>
         <a href="#" className="tk-secondary-link">
-          Sign up for the waitlist
+          Sign in with Medium
         </a>
       </div>
 

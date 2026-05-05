@@ -99,6 +99,10 @@ a {
     height: 0.88em;
   }
 
+  /* Hide nav tagline and sign-in link on mobile, keep only the CTA button. */
+  .tk-nav-tagline { display: none; }
+  .tk-nav-signin { display: none; }
+
   /* Shift vertical grid rails to match mobile content padding. */
   .tk-grid-left { left: 24px !important; }
   .tk-grid-right { right: 24px !important; }
