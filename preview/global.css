@@ -155,7 +155,7 @@ a {
 
 .tk-footer-tagline {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 7px;
   font-family: 'Inter', sans-serif;
   font-size: 18px;

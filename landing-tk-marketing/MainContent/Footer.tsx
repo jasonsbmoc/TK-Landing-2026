@@ -32,8 +32,8 @@ export function Footer() {
             <img
               src={mediumWordmarkUrl}
               alt="Medium"
-              height={18}
-              style={{display: 'block', filter: LOGO_FILTER}}
+              height={16}
+              style={{display: 'block', position: 'relative', top: '1px', filter: LOGO_FILTER}}
             />
           </div>
         </div>

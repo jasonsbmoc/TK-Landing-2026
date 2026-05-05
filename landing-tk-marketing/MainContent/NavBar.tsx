@@ -21,7 +21,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   tagline: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'baseline',
     gap: '5px',
     fontSize: '14px',
     color: '#1a1a1a',
@@ -63,7 +63,7 @@ export function NavBar() {
         <img src={tkWordmarkUrl} alt="TK" height={24} />
         <span className="tk-nav-tagline" style={styles.tagline}>
           A new way to write, from{' '}
-          <img src={mediumWordmarkUrl} alt="Medium" height={13} style={{display: 'block'}} />
+          <img src={mediumWordmarkUrl} alt="Medium" height={13} style={{display: 'block', position: 'relative', top: '1px'}} />
         </span>
       </div>
       <div style={styles.right}>
