@@ -58,7 +58,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily: 'Inter, sans-serif',
     fontSize: '16px',
     fontWeight: 500,
-    padding: '12px 22px',
+    padding: '12px 20px 12px 22px',
     borderRadius: '6px',
     textDecoration: 'none',
     letterSpacing: '-0.01em',

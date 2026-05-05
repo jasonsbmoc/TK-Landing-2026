@@ -44,7 +44,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily: 'Inter, sans-serif',
     fontSize: '16px',
     fontWeight: 500,
-    padding: '13px 24px',
+    padding: '13px 22px 13px 24px',
     borderRadius: '6px',
     textDecoration: 'none',
     letterSpacing: '-0.01em',
