@@ -22,7 +22,7 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '56px 32px 80px',
+    padding: '56px 48px 80px',
     backgroundColor: '#ffffff',
   },
   headline: {
@@ -147,6 +147,18 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
     return () => clearTimeout(cursorTimer)
   }, [typingDone])
 
+  // Horizontal grid lines: centered on the wrapper, 100vw wide, so they always
+  // span the full viewport regardless of whether the wrapper is at maxWidth.
+  const gridLine: React.CSSProperties = {
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: '100vw',
+    height: 1,
+    backgroundColor: 'rgba(0,0,0,0.06)',
+    pointerEvents: 'none',
+  }
+
   return (
     <section style={styles.section}>
       {/* Badge outer: positioning context for the ambient glow layer */}
@@ -243,36 +255,40 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
         </a>
       </div>
 
-      <div
-        className="tk-hero-image-container"
-        onMouseMove={handleDotMouseMove}
-        onMouseLeave={handleDotMouseLeave}
-        style={{
-          ...styles.imageContainer,
-          position: 'relative',
-          backgroundImage: `url(${backgroundUrl})`,
-          ...fadeUp(fadeIn, 560),
-        }}
-      >
-        {/* Dot grid reveal — same interaction as feature sections */}
+      {/* Wrapper animates as one unit. Lines bleed to section edges via negative left + calc width. */}
+      <div style={{position: 'relative', width: '100%', maxWidth: '1040px', ...fadeUp(fadeIn, 560)}}>
+        <div aria-hidden="true" style={{...gridLine, top: 0}} />
+        <div aria-hidden="true" style={{...gridLine, bottom: 0}} />
         <div
-          aria-hidden="true"
+          className="tk-hero-image-container"
+          onMouseMove={handleDotMouseMove}
+          onMouseLeave={handleDotMouseLeave}
           style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Crect x='9.75' y='9.75' width='2.5' height='2.5' fill='%23f0ece2'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            WebkitMaskImage: dotPos
-              ? `radial-gradient(circle 110px at ${dotPos.x}px ${dotPos.y}px, black 20%, transparent 100%)`
-              : 'radial-gradient(circle 0px at -9999px -9999px, black 0%, transparent 0%)',
-            maskImage: dotPos
-              ? `radial-gradient(circle 110px at ${dotPos.x}px ${dotPos.y}px, black 20%, transparent 100%)`
-              : 'radial-gradient(circle 0px at -9999px -9999px, black 0%, transparent 0%)',
-            transition: dotPos ? 'none' : 'mask-image 0.4s ease, -webkit-mask-image 0.4s ease',
-            pointerEvents: 'none',
+            ...styles.imageContainer,
+            position: 'relative',
+            backgroundImage: `url(${backgroundUrl})`,
           }}
-        />
-        <img src={imageUrl} alt="TK writing interface" style={{...styles.screenshot, position: 'relative', zIndex: 1}} />
+        >
+          {/* Dot grid reveal — same interaction as feature sections */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Crect x='9.75' y='9.75' width='2.5' height='2.5' fill='%23f0ece2'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'repeat',
+              WebkitMaskImage: dotPos
+                ? `radial-gradient(circle 110px at ${dotPos.x}px ${dotPos.y}px, black 20%, transparent 100%)`
+                : 'radial-gradient(circle 0px at -9999px -9999px, black 0%, transparent 0%)',
+              maskImage: dotPos
+                ? `radial-gradient(circle 110px at ${dotPos.x}px ${dotPos.y}px, black 20%, transparent 100%)`
+                : 'radial-gradient(circle 0px at -9999px -9999px, black 0%, transparent 0%)',
+              transition: dotPos ? 'none' : 'mask-image 0.4s ease, -webkit-mask-image 0.4s ease',
+              pointerEvents: 'none',
+            }}
+          />
+          <img src={imageUrl} alt="TK writing interface" style={{...styles.screenshot, position: 'relative', zIndex: 1}} />
+        </div>
       </div>
     </section>
   )
