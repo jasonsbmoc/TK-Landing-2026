@@ -59,7 +59,7 @@ const styles: Record<string, React.CSSProperties> = {
 export function NavBar() {
   return (
     <nav style={styles.nav}>
-      <div style={styles.left}>
+      <div className="tk-nav-left" style={styles.left}>
         <img src={tkWordmarkUrl} alt="TK" height={24} />
         <span className="tk-nav-tagline" style={styles.tagline}>
           A new way to write, from{' '}
@@ -68,7 +68,7 @@ export function NavBar() {
       </div>
       <div style={styles.right}>
         <a href="#" className="tk-nav-signin" style={styles.signInLink}>Sign in with Medium</a>
-        <a href="#" className="tk-button" style={styles.startButton}>Start writing</a>
+        <a href="#" className="tk-button tk-nav-start" style={styles.startButton}>Start writing</a>
       </div>
     </nav>
   )

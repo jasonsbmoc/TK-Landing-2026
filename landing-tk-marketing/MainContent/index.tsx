@@ -30,7 +30,7 @@ export function MainContent() {
       <main>
         <HeroSection
           imageUrl={heroImageUrl}
-          backgroundUrl={bgGreenUrl}
+          backgroundUrl={bgBlueUrl}
         />
         {/* Feature sections hidden for simplified first pass — kept in repo for later */}
         {false && <FeatureSection

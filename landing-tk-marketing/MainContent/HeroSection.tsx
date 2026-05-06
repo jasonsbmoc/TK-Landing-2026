@@ -98,21 +98,27 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
   const [cursorFading, setCursorFading] = useState(false)
   const [fadeIn, setFadeIn] = useState(false)
   const [glowPos, setGlowPos] = useState<GlowPos | null>(null)
+  const [glowActive, setGlowActive] = useState(false)
   const [dotPos, setDotPos] = useState<{x: number; y: number} | null>(null)
+  const [dotActive, setDotActive] = useState(false)
 
   const handleBadgeMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     setGlowPos({x: e.clientX - rect.left, y: e.clientY - rect.top})
+    setGlowActive(true)
   }
 
-  const handleBadgeMouseLeave = () => setGlowPos(null)
+  // Don't clear glowPos on leave — keep last position so the effect fades in place.
+  const handleBadgeMouseLeave = () => setGlowActive(false)
 
   const handleDotMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     setDotPos({x: e.clientX - rect.left, y: e.clientY - rect.top})
+    setDotActive(true)
   }
 
-  const handleDotMouseLeave = () => setDotPos(null)
+  // Don't clear dotPos on leave — opacity transition fades at the last position.
+  const handleDotMouseLeave = () => setDotActive(false)
 
   // Typewriter
   useEffect(() => {
@@ -179,16 +185,16 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
             position: 'absolute',
             inset: '-36px',
             pointerEvents: 'none',
-            opacity: glowPos ? 1 : 0,
+            opacity: glowActive ? 1 : 0,
             background: glowPos
-              ? `radial-gradient(circle 28px at ${glowPos.x + 36}px ${glowPos.y + 36}px, rgba(255, 208, 0, 0.3) 0%, transparent 100%)`
+              ? `radial-gradient(circle 32px at ${glowPos.x + 36}px ${glowPos.y + 36}px, rgba(255, 215, 0, 0.12) 0%, transparent 100%)`
               : 'transparent',
             transition: 'opacity 0.75s ease',
           }}
         />
 
-        {/* Border wrapper: 1px padding whose background shows through as the "border".
-            Radial gradient centered at cursor creates the traveling highlight. */}
+        {/* Border wrapper: always flat gold base. Gradient highlight is an absolutely
+            positioned overlay that fades via opacity, so the exit is smooth. */}
         <div
           onMouseMove={handleBadgeMouseMove}
           onMouseLeave={handleBadgeMouseLeave}
@@ -199,14 +205,28 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
             borderRadius: '100px',
             padding: '1px',
             cursor: 'default',
-            background: glowPos
-              ? `radial-gradient(circle 64px at ${glowPos.x}px ${glowPos.y}px, #FFD84D 0%, #E8C84A 50%, #C9A830 100%)`
-              : '#E8C84A',
+            background: '#E8C84A',
           }}
         >
           <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '100px',
+              background: glowPos
+                ? `radial-gradient(circle 200px at ${glowPos.x}px ${glowPos.y}px, #FFFDE8 0%, #FFE566 25%, #E8C84A 100%)`
+                : 'transparent',
+              opacity: glowActive ? 1 : 0,
+              transition: glowActive ? 'none' : 'opacity 0.5s ease',
+              pointerEvents: 'none',
+            }}
+          />
+          <div
             className="tk-friend-badge-inner"
             style={{
+              position: 'relative',
+              zIndex: 1,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
@@ -220,7 +240,8 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
             }}
           >
             <img src={friendBadgeUrl} alt="" width={18} height={18} />
-            Early access for Friends of Medium now open
+            <span className="tk-badge-desktop">Early access for Friends of Medium now open</span>
+            <span className="tk-badge-mobile">Early access now open</span>
           </div>
         </div>
       </div>
@@ -279,11 +300,12 @@ export function HeroSection({imageUrl, backgroundUrl}: HeroSectionProps) {
               backgroundRepeat: 'repeat',
               WebkitMaskImage: dotPos
                 ? `radial-gradient(circle 110px at ${dotPos.x}px ${dotPos.y}px, black 20%, transparent 100%)`
-                : 'radial-gradient(circle 0px at -9999px -9999px, black 0%, transparent 0%)',
+                : 'none',
               maskImage: dotPos
                 ? `radial-gradient(circle 110px at ${dotPos.x}px ${dotPos.y}px, black 20%, transparent 100%)`
-                : 'radial-gradient(circle 0px at -9999px -9999px, black 0%, transparent 0%)',
-              transition: dotPos ? 'none' : 'mask-image 0.4s ease, -webkit-mask-image 0.4s ease',
+                : 'none',
+              opacity: dotActive ? 1 : 0,
+              transition: dotActive ? 'none' : 'opacity 0.6s ease',
               pointerEvents: 'none',
             }}
           />

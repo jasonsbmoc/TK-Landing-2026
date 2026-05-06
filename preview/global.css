@@ -5,6 +5,7 @@
 }
 
 html {
+  overflow-x: hidden;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,6 +60,9 @@ a {
   transform: translateX(4px);
 }
 
+/* Badge copy: mobile version hidden by default, swapped in via media query below. */
+.tk-badge-mobile { display: none; }
+
 /* Feature section responsive grid */
 .tk-feature-section {
   display: grid;
@@ -99,8 +103,11 @@ a {
     height: 0.88em;
   }
 
-  /* Hide nav tagline and sign-in link on mobile, keep only the CTA button. */
-  .tk-nav-tagline { display: none; }
+  /* On mobile: show tagline right-aligned, hide CTA button and sign-in link.
+     !important needed to override inline styles on these elements. */
+  .tk-nav-tagline { display: flex !important; }
+  .tk-nav-left { flex: 1; justify-content: space-between; }
+  .tk-nav-start { display: none !important; }
   .tk-nav-signin { display: none; }
 
   /* Shift vertical grid rails to match mobile content padding. */
@@ -124,6 +131,10 @@ a {
     padding: 5px 12px 5px 8px !important;
   }
 
+  /* Swap badge copy at mobile: show short version, hide full version. */
+  .tk-badge-desktop { display: none; }
+  .tk-badge-mobile { display: inline; }
+
   /* Stack the CTA buttons vertically at mobile. */
   .tk-hero-cta-row {
     flex-direction: column;
@@ -132,67 +143,12 @@ a {
   }
 }
 
-/* Footer responsive layout */
-.tk-footer {
-  background-color: #ffffff;
-  border-top: 1px solid #f0f0f0;
-  padding: 80px 48px 48px;
-}
-
-.tk-footer-upper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 72px;
-}
-
-.tk-footer-branding {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 24px;
-}
-
 .tk-footer-tagline {
   display: flex;
   align-items: baseline;
   gap: 7px;
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  padding-top: 6px;
-  white-space: nowrap; /* keep text + logo on one line */
-}
-
-.tk-footer-nav {
-  display: flex;
-  gap: 72px;
-}
-
-@media (max-width: 800px) {
-  .tk-footer {
-    padding: 48px 24px 40px;
-  }
-
-  .tk-footer-upper {
-    flex-direction: column;
-    gap: 40px;
-    margin-bottom: 40px;
-  }
-
-  /* Stack logo above tagline so tagline has full width and doesn't overflow. */
-  .tk-footer-branding {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .tk-footer-tagline {
-    font-size: 15px;
-    white-space: nowrap;
-  }
-
-  .tk-footer-nav {
-    gap: 56px;
-  }
+  white-space: nowrap;
 }
 
 .tk-secondary-link {
