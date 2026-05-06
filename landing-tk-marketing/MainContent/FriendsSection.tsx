@@ -87,7 +87,7 @@ export function FriendsSection() {
   // Lerp smoothing means badges glide rather than snap, and naturally decay back
   // to rest when the cursor leaves without any CSS transition needed.
   useEffect(() => {
-    const container = containerRef.current
+    const container = containerRef.current!
     if (!container) return
     const gEls = [g0.current, g1.current, g2.current]
 
