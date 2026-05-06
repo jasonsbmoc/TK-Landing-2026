@@ -37,8 +37,9 @@ export function Footer() {
         fontFamily: 'Inter, sans-serif',
         fontSize: '13px',
         color: GRAY,
+        textAlign: 'center',
       }}>
-        &copy; A Medium Corporation 2026 &mdash; All rights reserved.
+        &copy; A Medium Corporation 2026<br className="tk-footer-break" /> &mdash; All rights reserved.
       </div>
     </footer>
   )

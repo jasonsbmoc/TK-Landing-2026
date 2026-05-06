@@ -63,6 +63,9 @@ a {
 /* Badge copy: mobile version hidden by default, swapped in via media query below. */
 .tk-badge-mobile { display: none; }
 
+/* Footer line break: hidden by default, shown on mobile via media query below. */
+.tk-footer-break { display: none; }
+
 /* Feature section responsive grid */
 .tk-feature-section {
   display: grid;
@@ -134,6 +137,8 @@ a {
   /* Swap badge copy at mobile: show short version, hide full version. */
   .tk-badge-desktop { display: none; }
   .tk-badge-mobile { display: inline; }
+
+  .tk-footer-break { display: block; }
 
   /* Stack the CTA buttons vertically at mobile. */
   .tk-hero-cta-row {
